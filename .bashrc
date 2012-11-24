@@ -5,7 +5,7 @@ set -o vi
 
 . ~/.git-completion.bash
 . ~/.git-prompt.sh
-. /Users/emcgough/.rvm/scripts/rvm
+. ~/.rvm/scripts/rvm
 
 #--------------------------------------
 # ENV
