@@ -1,11 +1,19 @@
 #--------------------------------------
-# bash
+# BASH
 #--------------------------------------
 set -o vi 
 
-. ~/.git-completion.bash
-. ~/.git-prompt.sh
-. ~/.rvm/scripts/rvm
+#--------------------------------------
+# SOURCE
+#--------------------------------------
+. $HOME/.git-completion.bash
+. $HOME/.git-prompt.sh
+
+if [ -s "$HOME/.rvm/scripts/rvm" ]; then
+  . "$HOME/.rvm/scripts/rvm"
+elif [ -s "/usr/local/rvm/scripts/rvm" ]; then
+  . "/usr/local/rvm/scripts/rvm"
+fi
 
 #--------------------------------------
 # ENV
@@ -13,9 +21,10 @@ set -o vi
 export PATH
 PATH=/usr/local/bin     # brew
 PATH=$PATH:$HOME/.rvm/bin
+PATH=/usr/local/rvm/bin
 PATH=$PATH:/usr/local/heroku/bin
+PATH=$PATH:$HOME/bin:$HOME/scripts
 PATH=$PATH:/bin:/usr/sbin:/usr/bin
-
 
 #--------------------------------------
 # PROMPT 
@@ -26,4 +35,4 @@ bash $(__git_ps1 "(%s)") % '
 #--------------------------------------
 # alias
 #--------------------------------------
-alias ls='ls -G'
+alias ls='ls -GF'
