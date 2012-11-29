@@ -21,7 +21,7 @@ fi
 export PATH
 PATH=/usr/local/bin     # brew
 PATH=$PATH:$HOME/.rvm/bin
-PATH=/usr/local/rvm/bin
+PATH=$PATH:/usr/local/rvm/bin
 PATH=$PATH:/usr/local/heroku/bin
 PATH=$PATH:$HOME/bin:$HOME/scripts
 PATH=$PATH:/bin:/usr/sbin:/usr/bin
