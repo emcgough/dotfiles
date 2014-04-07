@@ -29,7 +29,7 @@ PATH=$PATH:/bin:/usr/sbin:/usr/bin
 #--------------------------------------
 # PROMPT 
 #--------------------------------------
-export PS1="\033]0;$(uname -n)\007$(whoami)@$(uname -n):"'$(/bin/pwd)
+export PS1="\033]0;$(uname -n)\007$(whoami)@$(uname -n):"'$(pwd)
 bash $(__git_ps1 "(%s)") % '
 
 #--------------------------------------
