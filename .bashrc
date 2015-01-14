@@ -1,33 +1,22 @@
 #--------------------------------------
 # BASH
 #--------------------------------------
-set -o vi 
+set -o vi
 
 #--------------------------------------
 # SOURCE
 #--------------------------------------
-. $HOME/.git-completion.bash
-. $HOME/.git-prompt.sh
 
-if [ -s "$HOME/.rvm/scripts/rvm" ]; then
-  . "$HOME/.rvm/scripts/rvm"
-elif [ -s "/usr/local/rvm/scripts/rvm" ]; then
-  . "/usr/local/rvm/scripts/rvm"
+if [ -f `brew --prefix`/etc/bash_completion.d/git-completion.bash ]; then
+    . `brew --prefix`/etc/bash_completion.d/git-completion.bash
+fi
+
+if [ -f `brew --prefix`/etc/bash_completion.d/git-prompt.sh ]; then
+    . `brew --prefix`/etc/bash_completion.d/git-prompt.sh
 fi
 
 #--------------------------------------
-# ENV
-#--------------------------------------
-export PATH
-PATH=/usr/local/bin     # brew
-PATH=$PATH:$HOME/.rvm/bin
-PATH=$PATH:/usr/local/rvm/bin
-PATH=$PATH:/usr/local/heroku/bin
-PATH=$PATH:$HOME/bin:$HOME/scripts
-PATH=$PATH:/bin:/usr/sbin:/usr/bin
-
-#--------------------------------------
-# PROMPT 
+# PROMPT
 #--------------------------------------
 export PS1="\033]0;$(uname -n)\007$(whoami)@$(uname -n):"'$(pwd)
 bash $(__git_ps1 "(%s)") % '
